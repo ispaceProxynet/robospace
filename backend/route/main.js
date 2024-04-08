@@ -128,13 +128,13 @@ router.post('/newsletter', async (req, res) => {
       }
     });
 
-    const { name, email, subject, city, state, message } = req.body;
+    const { name, email, subject, location, message } = req.body;
   
     const mailOptions = {
       from: email,
       to: 'deenello83@gmail.com',
       subject: subject,
-      text: `Name: ${name}\nEmail: ${email}\nCity: ${city}\nState: ${state}\nMessage: ${message}`
+      text: `Name: ${name}\nEmail: ${email}\nState: ${location}\nMessage: ${message}`
     };
   
     transporter.sendMail(mailOptions, (error, info) => {
